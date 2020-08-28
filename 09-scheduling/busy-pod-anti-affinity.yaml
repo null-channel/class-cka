@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: busy-pod-affinity
+  name: busy-pod-affinity
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: busy-pod-affinity
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: busy-pod-affinity
+    spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: security
+                operator: In #In, NotIn, Exists, DoesNotExist, Gt, Lt
+                values:
+                - S1
+      containers:
+      - image: busybox
+        name: busybox
+        resources: {}
+status: {}
