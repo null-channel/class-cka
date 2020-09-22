@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mutable-config
+data:
+  # property-like keys; each key maps to a simple value
+  my-int: "10"
+  my-string: "not a number"
+  # file-like keys
+  people.json: |
+    {
+      "name":"Json"
+      "Age":"old"
+    }

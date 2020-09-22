@@ -1,0 +1,9 @@
+apiVersion: "marek.com/v1"
+kind: People
+metadata:
+  name: marek
+spec:
+  firstName: "Marek"
+  lastName: "Counts"
+  AwesomeLevel: "100%"
+  Humility: 0
