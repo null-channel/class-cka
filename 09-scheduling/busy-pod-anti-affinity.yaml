@@ -18,9 +18,9 @@ spec:
         app: busy-pod-affinity
     spec:
       affinity:
-        podAffinity:
+        podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
+            labelSelector:
               matchExpressions:
               - key: security
                 operator: In #In, NotIn, Exists, DoesNotExist, Gt, Lt

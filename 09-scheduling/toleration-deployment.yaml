@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: busy-pod-toleration-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: busy-pod-toleration
+  template:
+    metadata:
+      labels:
+        app: busy-pod-toleration
+    spec:
+      containers:
+      - image: busybox
+        name: busy-pod-toleration
+        resources: {}
+        command: 
+        - sleep
+        - "5000"
+      tolerations:
+      - key: "key"
+        operator: "Equal"
+        value: "value"
+        effect: "NoSchedule"
